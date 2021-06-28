@@ -1,0 +1,7 @@
+{
+  "name": "docsify-prettier",
+  "version": "1.0.2",
+  "main": "prettier.js",
+  "license": "MIT",
+  "author": "KonghaYao <20192831006@m.scnu.edu.cn>"
+}
