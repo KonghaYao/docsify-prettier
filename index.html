@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>JSpider 3</title>
+  <title>docsify-prettier</title>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
@@ -24,7 +24,9 @@
 <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-typescript.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-less.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-scss.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-swift.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-markdown.min.js"></script>
+
+
 <script>
   window.app = document.getElementById("app");
   window.$docsify = {
@@ -32,15 +34,37 @@
     repo: "https://github.com/Konghayao",
     homepage: "./README.md",
 
-    auto2top: true,
-    maxLevel: 3,
+    // 在这里写入你的 prettier 设置，如果你不会设置，那么就不写好了
+    prettier: {
+      "printWidth": 80,
+      "tabWidth": 4,
+      "useTabs": false,
+      "endOfLine": "auto",
+      "singleQuote": false,
+      "semi": true,
+      "trailingComma": "all",
+      "bracketSpacing": true
 
-    plugins: [
-
-    ],
+    },
+    // 在这里需要写一个格式化的逻辑
+    markdown: {
+      renderer: {
+        code: function (code, lang, ...args) {
+          return this.origin.code.call(this, window.codeFormatter(code, lang), lang, ...args);
+        }
+      }
+    }
   };
 </script>
-<script type='module' src="./prettier.js"></script>
-
+<!-- 在这里写入你需要的 prettier 代码解析插件-->
+<script src="https://cdn.jsdelivr.net/npm/prettier/standalone.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prettier/parser-graphql.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prettier@2.3.2/parser-flow.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prettier@2.3.2/parser-postcss.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prettier@2.3.2/parser-typescript.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prettier@2.3.2/parser-babel.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prettier@2.3.2/parser-html.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prettier@2.3.2/parser-markdown.js"></script>
+<script src="./prettier.js"></script>
 
 </html>
