@@ -14,7 +14,7 @@ docsify-prettier 是用于格式化代码的一个 docsify 插件，通过将代
 
 ```html
 <!-- 必须的插件 -->
-<script src="https://cdn.jsdelivr.net/npm/prettier/standalone.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prettier@2.3.2/standalone.js"></script>
 
 <!-- 语言解析的插件，可以挑选你需要的代码语言，这里只是放置了我的一些配置，你可以自己查看 prettier 的文档进行文件的添加 -->
 <script src="https://cdn.jsdelivr.net/npm/prettier@2.3.2/parser-postcss.js"></script>
